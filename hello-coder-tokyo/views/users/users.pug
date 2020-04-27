@@ -1,0 +1,13 @@
+a(href="/") Comeback
+span &nbsp
+a(href="user/create") New
+
+
+div UserList 
+form(action="/user/search" method="GET")
+    input(type="text" name="q" value = data[1].q)
+    button Search
+ul  
+    each user in data[0].users
+        li=user.name
+        a(href="/user/"+user.id) View
