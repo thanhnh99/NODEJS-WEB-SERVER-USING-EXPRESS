@@ -27,30 +27,11 @@ module.exports.getCreate = function(req,res){
 }
 
 module.exports.postCreate = function(req,res)
-{
-    var data=req.body;
-    console.log(data);
-    var errors=[];
-    if(data.name == null || data.name == "" )
-    {
-        errors.push("Tên cần được điền");
-    }
-    
-    if(data.phone == null || data.phone == "" )
-    {
-        errors.push("Số điện thoại cần được điền");
-    }
-
-    if(errors.length<=0)
-    {
-        db.get("users").push(req.body).write();
+{ 
+    db.get("users").push(req.body).write();
         res.redirect("/user");
-    }
-    res.render("users/create",{
-        "errors":errors,
-        "value":data
-    })
 }
+
 
 module.exports.view = function(req,res){
     var phone= (req.params.phone);
