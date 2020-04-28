@@ -1,13 +1,26 @@
-a(href="/") Comeback
-span &nbsp
-a(href="user/create") New
+extends ../layout/common
+
+block content
+
+    a.btn.btn-primary.mb-3(href="user/create") New
 
 
-div UserList 
-form(action="/user/search" method="GET")
-    input(type="text" name="q" value = data[1].q)
-    button Search
-ul  
-    each user in data[0].users
-        li=user.name
-        a(href="/user/"+user.id) View
+    form(action="/user/search" method="GET")
+        .form-group.pr-2.d-flex
+            input.form-control.pd-2(type="text" name="q" value = q)
+            button.btn.btn-primary.ml-3 Search
+
+    table.table.table-striped.table-light
+        thead
+            tr
+            th(scope='col') Name
+            th(scope='col') Phone
+            th(scope='col') Action
+        tbody
+        each user in users
+            tr
+            td= user.name
+            td= user.phone
+            td 
+                a(href="/user/"+user.phone) View
+            td

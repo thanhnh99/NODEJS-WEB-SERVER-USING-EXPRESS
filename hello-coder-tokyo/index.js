@@ -3,10 +3,8 @@ var bodyParser = require('body-parser');
 var userRoute = require("./routes/user.route")
 
 var app = express();
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
-
-// parse application/json
+app.use(express.static("publics"))
 app.use(bodyParser.json())
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
@@ -30,5 +28,5 @@ app.use("/user/",userRoute);
 
 app.listen(port,function()
 {
-    console.log("Server is listenning on port "+port);
+    console.log("Server is listening on port "+port);
 })
