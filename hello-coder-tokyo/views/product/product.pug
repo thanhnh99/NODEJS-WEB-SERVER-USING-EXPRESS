@@ -1,0 +1,40 @@
+extends ../layout/common
+block content
+    h1 Product
+    //- .card-group
+    //-     if products
+    //-         each product in products 
+    //-             .card.mr-5(style='width: 18rem;')
+    //-                 img.card-img-top(src=product.image, alt='...')
+    //-                 .card-body
+    //-                 h5.card-title= product.name
+    //-                 p.card-text= product.description
+                        
+    //-                 a.btn.btn-primary(href='#') Add to card
+
+    .row.row-cols-1.row-cols-md-3
+        if products
+            each product in products 
+                .col.mb-4
+                    .card
+                    img.card-img-top(src=product.image, alt='...')
+                    .card-body.bg-light(style="height:150px")
+                        h5.card-title= product.product_name
+                        p.card-text= product.description
+    nav(aria-label='...')
+        ul.pagination
+            li.page-item.disabled
+                a.page-link(href='#', tabindex='-1') Previous
+            li.page-item
+                a.page-link(href='#') 1
+            li.page-item.active
+                a.page-link(href='#')
+                    | 2 
+                    span.sr-only (current)
+            li.page-item
+                a.page-link(href='#') 3
+            li.page-item
+                a.page-link(href='#') Next
+
+                        
+            

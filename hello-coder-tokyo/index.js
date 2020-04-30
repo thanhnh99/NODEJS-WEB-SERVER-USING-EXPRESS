@@ -4,6 +4,7 @@ var express = require("express");
 var bodyParser = require('body-parser');
 var userRoute = require("./routes/user.route")
 var authRoute = require("./routes/auth.route")
+var productRoute = require("./routes/product.route")
 var authMiddleware = require("./middleware/auth.middleware")
 var cookieParser = require('cookie-parser')
 
@@ -37,6 +38,8 @@ app.get("/",function(req,res)
 app.use("/user/",authMiddleware.requireLogin,userRoute);
 
 app.use("/auth/",authRoute);
+
+app.use("/products",productRoute)
 
 app.listen(port,function()
 {
