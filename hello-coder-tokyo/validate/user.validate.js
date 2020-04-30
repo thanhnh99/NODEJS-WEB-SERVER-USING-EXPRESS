@@ -18,6 +18,7 @@ module.exports.postCreate = function(req,res,next)
             "errors":errors,
             "value":data
         })
+        return;
     }
     
     next();

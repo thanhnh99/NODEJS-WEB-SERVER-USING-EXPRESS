@@ -2,7 +2,6 @@ var db = require("../db")
 
 module.exports.index = function(req,res)
 {
-    console.log(db.get("users").value());
     res.render("users/users",{
             "users":db.get("users").value(),
             "q":""

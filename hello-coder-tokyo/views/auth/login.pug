@@ -1,0 +1,15 @@
+extends ../layout/common
+block content
+    h1 Login
+    if errors
+        for err in errors
+            .alert.alert-success(role='alert')= err
+    form(method="post")
+        .form-group
+            label(for="username") User Name
+            input#username.form-control(type="text", name="username" value= value?value.username:"")
+        .form-group
+            label(for="password") Password
+            input#password.form-control(type="password", name="password" value = value?value.password:"")
+            
+        button.btn.btn-default Login

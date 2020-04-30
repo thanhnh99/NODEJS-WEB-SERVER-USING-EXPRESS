@@ -7,4 +7,5 @@ block content
     span
         b Name
         span &nbsp
-        span= user.name
+        if user 
+            span= user.name

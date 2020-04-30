@@ -11,12 +11,14 @@ router.get("/search",userController.search);
 
 router.get("/create",userController.getCreate)
 
+router.get("/cookie",function(req,res,next){
+    res.cookie("user-id",12345);
+    res.send("Hello");
+})
+
 router.post("/create",userValidate.postCreate,userController.postCreate)
 router.get('/:phone',userController.view)
 
 
-router.get("/cookie",function(req,res,next){
-    res.cookie("user-id",12345);
-    res.send(" Hello ");
-})
+
 module.exports = router;
