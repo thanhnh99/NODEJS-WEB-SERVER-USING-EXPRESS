@@ -1,4 +1,5 @@
 var express = require("express")
+var md5 = require("md5")
 var db = require("../db")
 
 module.exports.getLogin = function(req,res)
@@ -36,7 +37,8 @@ module.exports.postLogin = function(req,res)
             value:req.body
         })
     }
-    if(!(user.password == req.body.password))
+    var hashPassword = md5(req.body.password);
+    if(!(user.password == hashPassword))
     {
         errs.push("Wrong Password")
         res.render("auth/login",{
@@ -45,7 +47,9 @@ module.exports.postLogin = function(req,res)
         })
     }
 
-    res.cookie("user", user.username)
+    res.cookie("user", user.username,{
+        signed:true
+    })
     res.redirect("/user")
 
 

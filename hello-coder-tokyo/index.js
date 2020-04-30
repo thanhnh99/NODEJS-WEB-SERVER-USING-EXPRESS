@@ -12,7 +12,7 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static("publics"))
 app.use(bodyParser.json())
-app.use(cookieParser())
+app.use(cookieParser("you are hacker???"))
 
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')

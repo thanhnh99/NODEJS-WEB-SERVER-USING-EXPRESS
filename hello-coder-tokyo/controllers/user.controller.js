@@ -2,6 +2,7 @@ var db = require("../db")
 
 module.exports.index = function(req,res)
 {
+    console.log(req.signedCookies.user)
     res.render("users/users",{
             "users":db.get("users").value(),
             "q":""

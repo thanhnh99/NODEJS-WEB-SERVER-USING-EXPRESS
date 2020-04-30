@@ -2,17 +2,16 @@ var db = require("../db")
 
 module.exports.requireLogin = function(req,res,next)
 {
-    if(!req.cookies.user)
+    if(!req.signedCookies.user)
     {
         res.redirect("/auth/login");
     }
-    console.log(req.cookies.user)
-    var user = db.get("users").find("username",req.cookies.user).value();
-    console.log(user)
+    console.log(req.signedCookies.user)
+    var user = db.get("users").find({"username":req.signedCookies.user}).value();
     if(!user)
     {
         res.redirect("/auth/login");
     }
-
+    res.locals.user = user
     next();
 }
