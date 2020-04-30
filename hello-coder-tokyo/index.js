@@ -1,3 +1,5 @@
+var env = require("dotenv").config()
+
 var express = require("express");
 var bodyParser = require('body-parser');
 var userRoute = require("./routes/user.route")
@@ -12,7 +14,7 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static("publics"))
 app.use(bodyParser.json())
-app.use(cookieParser("you are hacker???"))
+app.use(cookieParser("env.process().SECRET_COOKIE"))
 
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
