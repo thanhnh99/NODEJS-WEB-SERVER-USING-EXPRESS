@@ -1,0 +1,19 @@
+extends ../layout/common
+block content
+    h1 Register
+    if errors
+        for err in errors
+            .alert.alert-success(role='alert')= err
+    form(method="post", enctype="multipart/form-data")
+        .form-group
+            label(for="email") Email
+            input#email.form-control(type="text", name="email" value= value?value.email:"")
+        .form-group
+            label(for="password") Password
+            input#password.form-control(type="text", name="password" value = value?value.password:"")
+        .form-group
+            label(for='avatar') Avatar
+            input#avatar.form-control-file(type='file',name = "avatar")
+                        
+        button.btn.btn-primary Register
+

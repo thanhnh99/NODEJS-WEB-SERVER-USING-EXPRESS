@@ -20,6 +20,9 @@ html
         //-     a.nav-link(href='/cart') Cart
       if user
         p=user.name
+      else
+        a.btn.btn-primary.mb-3(href="/auth/register") Register
+
     .container.pt-5
       block content
 

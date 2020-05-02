@@ -1,20 +1,22 @@
-var express = require("express")
 var md5 = require("md5")
 var db = require("../db")
+const shortid = require('shortid');
+
 
 module.exports.getLogin = function(req,res)
 {
     res.render("auth/login",{
+        errors:[]
         
-})
+    })
 }
 
 module.exports.postLogin = function(req,res)
 {
     var errs=[];
-    if(!req.body.username || req.body.username=="")
+    if(!req.body.email || req.body.email=="")
     {
-        errs.push("User name is required");
+        errs.push("Email is required");
     }
 
     if(!req.body.password || req.body.password=="")
@@ -28,10 +30,10 @@ module.exports.postLogin = function(req,res)
             value:req.body
         })
     }
-    var user = db.get("users").find({"username":req.body.username}).value();
+    var user = db.get("users").find({"email":req.body.email}).value();
     if(!user)
     {
-        errs.push("User does not exist!!!")
+        errs.push("User x not exist!!!")
         res.render("auth/login",{
             errors:errs,
             value:req.body
@@ -47,10 +49,34 @@ module.exports.postLogin = function(req,res)
         })
     }
 
-    res.cookie("user", user.username,{
+    res.cookie("user", user.email,{
         signed:true
     })
     res.redirect("/user")
 
 
+}
+
+module.exports.getRegister = function(req,res)
+{
+    res.render("auth/register")
+}
+
+module.exports.postRegister = function(req,res)
+{
+    if(db.get("users").find({"email": req.body.email}).value())
+    {
+        var errors=[]
+        errors.push("User existed")
+        res.render("auth/register",{
+            errors:errors
+        })
+    }
+    var data={};
+    data.email= req.body.email;
+    data.password = md5(req.body.password);
+    data.avatar= req.file.path.split("\\").slice(1).join("/");
+    data.id=shortid.generate();
+    db.get("users").push(data).write();
+    res.redirect("/auth/login")
 }

@@ -1,20 +1,24 @@
-module.exports.postCreate = function(req,res,next)
+module.exports.postRegister = function(req,res,next)
 {
     var data=req.body;
     var errors=[];
-    if(req.body.name == null || req.body.name == "" )
+    if(req.body.email == null || req.body.email == "" )
     {
-        errors.push("Tên cần được điền");
+        errors.push("Email is require");
     }
     
-    if(req.body.phone == null || req.body.phone == "" )
+    if(req.body.password == null || req.body.password == "" )
     {
-        errors.push("Số điện thoại cần được điền");
+        errors.push("Password is require");
     }
 
+    if(!req.file)
+    {
+        errors.push("Avatar is require");
+    }
     if(errors.length)
     {
-        res.render("users/create",{
+        res.render("auth/register",{
             "errors":errors,
             "value":data
         })

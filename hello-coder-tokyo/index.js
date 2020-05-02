@@ -39,7 +39,7 @@ app.use("/user/",authMiddleware.requireLogin,userRoute);
 
 app.use("/auth/",authRoute);
 
-app.use("/products",productRoute)
+app.use("/products",authMiddleware.requireLogin,productRoute)
 
 app.listen(port,function()
 {

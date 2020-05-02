@@ -1,38 +1,16 @@
 {
   "users": [
     {
-      "phone": "1111111111",
-      "name": "ThanhNH"
+      "email": "huuthanh99hn@gmail.com",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "avatar": "uploads/5ab62002797a03037720a853e83a9515",
+      "id": "VKu4JsTkw"
     },
     {
-      "phone": "11111111112",
-      "name": "Nguyễn Hữu Thanh",
-      "username": "thanhnh3",
-      "password": "202cb962ac59075b964b07152d234b70"
-    },
-    {
-      "phone": "11111111113",
-      "name": "Nguyễn Hữu Thanh1",
-      "username": "thanhnh2",
-      "password": "202cb962ac59075b964b07152d234b70"
-    },
-    {
-      "phone": "11111111114",
-      "name": "Nguyễn Hữu Thanh2",
-      "username": "thanhnh",
-      "password": "202cb962ac59075b964b07152d234b70"
-    },
-    {
-      "name": "ádfdsafds",
-      "phone": "89898"
-    },
-    {
-      "name": "jhkjjl",
-      "phone": "hkjhjhk"
-    },
-    {
-      "name": "Thanh",
-      "phone": "9850924354"
+      "email": "thanh@gmail.com",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "avatar": "uploads/e18a17920b840ac81ebc5b7c02c4f48e",
+      "id": "cQmnpARoF"
     }
   ],
   "products": [

@@ -13,14 +13,15 @@ block content
     table.table.table-striped.table-light
         thead
             tr
-            th(scope='col') Name
-            th(scope='col') Phone
+            th(scope='col') Email
+            th(scope='col') Avatar
             th(scope='col') Action
         tbody
         each user in users
             tr
-            td= user.name
-            td= user.phone
+            td= user.email
+            td.rounded-circle
+                img(src=user.avatar, alt='Smiley face', height='32', width='32')
             td 
-                a(href="/user/"+user.phone) View
+                a(href="/user/") View
             td
