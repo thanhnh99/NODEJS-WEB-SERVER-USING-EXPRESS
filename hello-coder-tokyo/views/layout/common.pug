@@ -17,7 +17,11 @@ html
           li.nav-item
             a.nav-link(href='/products') Products
           li.nav-item
-            a.nav-link(href='/cart') Cart
+            a.nav-link(href='/cart') Cart =>
+              if quantity
+                span= quantity
+              else
+                span= 0
         //-   li.nav-item
         //-     a.nav-link(href='/cart') Cart
       if user

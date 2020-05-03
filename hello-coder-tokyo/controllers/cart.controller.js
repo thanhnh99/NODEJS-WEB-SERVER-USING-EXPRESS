@@ -6,6 +6,7 @@ module.exports.getCard = function(req,res)
                     .find({id : req.signedCookies.sessionId})
                     .value();
     var carts=[]
+    quantity=0
     for(cart in data)
     {
         if(cart!="id")
@@ -13,12 +14,14 @@ module.exports.getCard = function(req,res)
             var product_name=(db.get("products").find({id : cart.slice(4)}).value().product_name);
             carts.push({"product_name":product_name,
                         "amount":data[cart]});
+            quantity+=parseInt(data[cart])
         }
         // console.log(cart, data[cart]);
     }
     res.render("cart/cart",
     {
-        data : carts 
+        data : carts,
+        quantity:quantity
     })
 }
 
@@ -42,5 +45,6 @@ module.exports.addToCard = function(req,res)
         .find({"id":sessionId})
         .set("cart" + productId,count+1)
         .write();
+    res.local.quantity+=1;
     res.redirect("/products")
 }
