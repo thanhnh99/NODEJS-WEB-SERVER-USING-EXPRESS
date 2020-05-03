@@ -1,0 +1,17 @@
+extends ../layout/common
+
+block content
+ 
+  if data.length==0
+    span No product is selected!!!
+  else
+    table.table
+      thead
+        tr
+          th(scope='col') Product Name
+          th(scope='col') Amount
+      tbody
+      each cart in data
+        tr
+          td= cart.product_name
+          td= cart.amount

@@ -614,5 +614,31 @@
       "image": "https://loremflickr.com/320/240/dog",
       "description": "tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat"
     }
+  ],
+  "sessionId": [
+    {
+      "sessionId": "sYeDeQLZH"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "4s3qAiysR"
+    },
+    {
+      "id": "7bwiASgMi",
+      "cart27a08677-f3bb-42b0-833d-d1b317944472": 1,
+      "cart84e8899f-22c5-45b4-8987-09a32cb0e683": 1,
+      "cartfabe4b72-f353-4316-acdb-8b78dc3203ee": 1,
+      "cart1908c723-7f50-40e0-86cc-d3a9cd476ec6": 1
+    },
+    {
+      "id": "hPMpFKdP1",
+      "cartfabe4b72-f353-4316-acdb-8b78dc3203ee": 1,
+      "cart27a08677-f3bb-42b0-833d-d1b317944472": 1
+    },
+    {
+      "id": "WJIJkOcV8",
+      "cartfabe4b72-f353-4316-acdb-8b78dc3203ee": 1
+    }
   ]
 }

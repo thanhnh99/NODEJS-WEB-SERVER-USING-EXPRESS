@@ -6,7 +6,6 @@ module.exports.requireLogin = function(req,res,next)
     {
         res.redirect("/auth/login");
     }
-    console.log(req.signedCookies.user)
     var user = db.get("users").find({"email":req.signedCookies.user}).value();
     if(!user)
     {
